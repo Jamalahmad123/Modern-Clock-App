@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./assets/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+    <title>Frontend Mentor | Clock App</title>
+  </head>
+  <body>
+    <!-- overlay -->
+    <div class="overlay"></div>
+    <main class="main">
+      <div class="container main-grid">
+        <!-- qoutes -->
+        <section class="qoute-container">
+          <div class="qoute-content">
+            <p class="qoute">
+              
+            </p>
+            <h2 class="author"></h2>
+          </div>
+          <button class="refresh">
+            <img src="./assets/desktop/icon-refresh.svg" alt="icon-refresh" />
+          </button>
+        </section>
+
+        <!-- Time and country -->
+        <section class="currently">
+          <div class="widgets-wrapper">
+            <header>
+              <img
+                src=""
+                alt=""
+                class="day-and-night"
+              />
+              <p class="greeting"></p>
+            </header>
+            <article class="current-time">
+              <h1 class="time"> 
+                <span class="time-standard"></span>
+              </h1>
+            </article>
+            <article class="location-wrapper">
+              <p class="location-info">
+                
+              </p>
+              <button class="btn-details">
+                More
+                <img
+                  src="./assets/desktop/icon-arrow-up.svg"
+                  alt="icon-arrow-up"
+                  class="arrow"
+                  aria-hidden="true"
+                />
+              </button>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- details -->
+    <div class="details">
+      <div class="container">
+        <ul class="details-content">
+          <li>
+            <h4 class="heading">Current TimeZone</h4>
+            <h2 class="body timezone">Europe/Lodon</h2>
+          </li>
+          <li>
+            <h4 class="heading">Day Of the week</h4>
+            <h2 class="body week-day">5</h2>
+          </li>
+          <li>
+            <h4 class="heading">Day of the year</h4>
+            <h2 class="body year-day">295</p>
+          </li>
+          <li>
+            <h4 class="heading">week of the year</h4>
+            <h2 class="body week-year">42</h2>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
