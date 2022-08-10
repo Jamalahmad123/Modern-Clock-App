@@ -150,10 +150,10 @@ function clock() {
   setTimeout(clock, 1000);
 }
 
-requestTimeZone();
-getIpAdressFromApi();
-getQoutesFromApi();
 clock();
+getQoutesFromApi();
+getIpAdressFromApi();
+requestTimeZone();
 
 // EVENT HANDLERS FUNCTIONS
 function displayDetails() {
