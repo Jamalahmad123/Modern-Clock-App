@@ -54,7 +54,7 @@ function getIpAdressFromApi() {
 
 // Getting TimeZone and related stuff from an API
 function requestTimeZone() {
-  const endpoint = 'http://worldtimeapi.org/api/ip';
+  const endpoint = 'http://worldtimeapi.org/api/ip/';
 
   fetch(endpoint)
     .then(res => res.json())
@@ -150,10 +150,10 @@ function clock() {
   setTimeout(clock, 1000);
 }
 
-clock();
 getQoutesFromApi();
 getIpAdressFromApi();
 requestTimeZone();
+clock();
 
 // EVENT HANDLERS FUNCTIONS
 function displayDetails() {
