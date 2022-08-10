@@ -76,7 +76,6 @@ function requestTimeZone() {
       weekDayEl.textContent = weekDay;
       yearDayEl.textContent = yearDay;
       yearWeekEl.textContent = weekYear;
-      console.log(data);
     });
 }
 
@@ -102,7 +101,9 @@ function getQoutesFromApi() {
   // https://api.quotable.io/random
   const endpoint = 'https://type.fit/api/quotes';
   fetch(endpoint)
-    .then(res => res.json())
+    .then(res => {
+      return res.json();
+    })
     .then(qoute => {
       apiQoutes = qoute;
       getRandomQuote();
