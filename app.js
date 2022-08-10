@@ -54,7 +54,7 @@ function getIpAdressFromApi() {
 
 // Getting TimeZone and related stuff from an API
 function requestTimeZone() {
-  const endpoint = 'http://worldtimeapi.org/api/ip/';
+  const endpoint = 'https://worldtimeapi.org/api/ip';
 
   fetch(endpoint)
     .then(res => res.json())
@@ -163,6 +163,15 @@ function displayDetails() {
   // toggle transform class to show more info
   mainContainer.classList.toggle('transform');
   detailsInfo.classList.toggle('transform');
+
+  // check if transform class is there
+  // if (detailsInfo.classList.contains('transform')) {
+  //   // make it visible
+  //   detailsInfo.hidden = false;
+  // } else {
+  //   // make it hide
+  //   detailsInfo.hidden = true;
+  // }
 }
 
 // EventHandler
