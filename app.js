@@ -54,7 +54,9 @@ function getIpAdressFromApi() {
 
 // Getting TimeZone and related stuff from an API
 function requestTimeZone() {
+  // const apiKey = 'a68b955b16cb4a63b606ff86530e5482';
   const endpoint = 'https://worldtimeapi.org/api/ip';
+  // const endpoint = `https://api.ipgeolocation.io/timezone?apiKey=API_KEY`;
 
   fetch(endpoint)
     .then(res => res.json())
@@ -74,6 +76,7 @@ function requestTimeZone() {
       weekDayEl.textContent = weekDay;
       yearDayEl.textContent = yearDay;
       yearWeekEl.textContent = weekYear;
+      console.log(data);
     });
 }
 
