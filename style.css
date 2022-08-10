@@ -68,7 +68,7 @@ img {
 /* main Style */
 .main-grid {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: column;
   min-height: 100vh;
 }
