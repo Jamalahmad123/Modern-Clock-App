@@ -1,36 +1,19 @@
 'use strict';
 
 // UI ELements
-
 // CONTAINERS
 const overlayContainer = document.querySelector('.overlay');
-const mainContainer = document.querySelector('.main');
-const detailsInfo = document.querySelector('.details');
-
-// QOUTE ELEMENTS
-const qouteEL = document.querySelector('.qoute');
-const authorEL = document.querySelector('.author');
-
-// TIME ELEMENT
-const timeEl = document.querySelector('.time');
-const greetingEL = document.querySelector('.greeting');
-const iconEL = document.querySelector('.day-and-night');
-
-// COUNTRY AND CITY ELEMENTS
-const countryInfoEL = document.querySelector('.location-info');
-const timeStandard = document.querySelector('.time-standard');
-const timeZoneEL = document.querySelector('.timezone');
-
-// DAY, WEEK AND YEAR ELEMENTS
-const weekDayEl = document.querySelector('.week-day');
-const yearDayEl = document.querySelector('.year-day');
-const yearWeekEl = document.querySelector('.week-year');
 
 // BUTTONS ELEMENT
 const btnRefresh = document.querySelector('.refresh');
 const btnMore = document.querySelector('.btn-details');
 
 // FUNCTION
+
+// selector is a function that recieve an argument of class name or id name and it will select that element based on the html selector
+function selector(selectorName) {
+  return document.querySelector(selectorName);
+}
 
 // Getting IP Address from an API
 function getIpAdressFromApi() {
@@ -48,15 +31,16 @@ function getIpAdressFromApi() {
       const { city, country, region } = user;
 
       // updating markup
-      countryInfoEL.textContent = `in ${city}, ${country}`;
+
+      selector('.location-info').textContent = `in ${city}, ${country}`;
     });
 }
 
 // Getting TimeZone and related stuff from an API
 function requestTimeZone() {
   // const apiKey = 'a68b955b16cb4a63b606ff86530e5482';
-  const endpoint = 'https://worldtimeapi.org/api/ip';
   // const endpoint = `https://api.ipgeolocation.io/timezone?apiKey=API_KEY`;
+  const endpoint = 'https://worldtimeapi.org/api/ip';
 
   fetch(endpoint)
     .then(res => res.json())
@@ -71,11 +55,11 @@ function requestTimeZone() {
       } = data;
 
       // updating makrup
-      timeStandard.textContent = abbreviation;
-      timeZoneEL.textContent = timezone;
-      weekDayEl.textContent = weekDay;
-      yearDayEl.textContent = yearDay;
-      yearWeekEl.textContent = weekYear;
+      selector('.time-standard').textContent = abbreviation;
+      selector('.timezone').textContent = timezone;
+      selector('.week-day').textContent = weekDay;
+      selector('.year-day').textContent = yearDay;
+      selector('.week-year').textContent = weekYear;
     });
 }
 
@@ -89,11 +73,11 @@ function getRandomQuote() {
 
   // check if author is null
   if (author === null) {
-    authorEL.textContent = 'Unknow';
+    selector('.author').textContent = 'Unknow';
   } else {
-    authorEL.textContent = author;
+    selector('.author').textContent = author;
   }
-  qouteEL.textContent = `"${text}"`;
+  selector('.qoute').textContent = `"${text}"`;
 }
 
 // getting random qoutes from an API
@@ -121,7 +105,7 @@ function clock() {
 
   // getting time on user local
   const time = new Intl.DateTimeFormat('en-us', option).format(now);
-  timeEl.childNodes[0].nodeValue = time;
+  selector('.time').childNodes[0].nodeValue = time;
 
   // check time for different greetings
   let greeting;
@@ -136,19 +120,19 @@ function clock() {
   }
 
   // setting the greeting msg
-  greetingEL.textContent = `good ${greeting}, it's currently`;
+  selector('.greeting').textContent = `good ${greeting}, it's currently`;
 
   // setting background images according to time
   if (hr >= 5 && hr <= 17) {
     overlayContainer.classList.add('day');
-    iconEL.src = './assets/desktop/icon-sun.svg';
-    iconEL.alt = 'icon-sun';
+    selector('.day-and-night').src = './assets/desktop/icon-sun.svg';
+    selector('.day-and-night').alt = 'icon-sun';
   } else {
     overlayContainer.classList.add('night');
-    iconEL.src = './assets/desktop/icon-moon.svg';
-    iconEL.alt = 'icon-moon';
-    details.style.color = '#fff';
-    details.style.background = 'rgba(0, 0, 0, 0.75)';
+    selector('.day-and-night').src = './assets/desktop/icon-moon.svg';
+    selector('.day-and-night').alt = 'icon-moon';
+    selector('.details').style.color = '#fff';
+    selector('.details').style.background = 'rgba(0, 0, 0, 0.75)';
   }
 
   setTimeout(clock, 1000);
@@ -165,17 +149,8 @@ function displayDetails() {
   this.classList.toggle('rotate');
 
   // toggle transform class to show more info
-  mainContainer.classList.toggle('transform');
-  detailsInfo.classList.toggle('transform');
-
-  // check if transform class is there
-  // if (detailsInfo.classList.contains('transform')) {
-  //   // make it visible
-  //   detailsInfo.hidden = false;
-  // } else {
-  //   // make it hide
-  //   detailsInfo.hidden = true;
-  // }
+  selector('.main').classList.toggle('transform');
+  selector('.details').classList.toggle('transform');
 }
 
 // EventHandler
