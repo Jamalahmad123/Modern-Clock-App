@@ -103,7 +103,8 @@ img {
 }
 
 .refresh img {
-  max-width: 6rem;
+  min-width: 3rem;
+  width: 3rem;
 }
 
 .refresh:hover {
